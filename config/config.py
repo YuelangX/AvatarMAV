@@ -36,25 +36,25 @@ class config_headnerf(config_base):
         self.cfg.dataset.video_name = ''
         self.cfg.dataset.resolution = 512
         
-        self.cfg.headnerfmodule = CN()
-        self.cfg.headnerfmodule.deform_bs_res = 65
-        self.cfg.headnerfmodule.deform_bs_dim = 3
-        self.cfg.headnerfmodule.deform_linear = [81, 3]
-        self.cfg.headnerfmodule.feature_res = 65
-        self.cfg.headnerfmodule.feature_dim = 4
-        self.cfg.headnerfmodule.density_linear = [108, 4]
-        self.cfg.headnerfmodule.color_linear = [108, 4]
-        self.cfg.headnerfmodule.interp_level = 3
-        self.cfg.headnerfmodule.exp_dim = 32
-        self.cfg.headnerfmodule.embedding_freq = 4
-        self.cfg.headnerfmodule.deform_bbox = [[-0.15, 0.15], [-0.15, 0.15], [-0.2, 0.1]]
-        self.cfg.headnerfmodule.feature_bbox = [[-0.15, 0.15], [-0.15, 0.15], [-0.2, 0.1]]
-        self.cfg.headnerfmodule.noise = 0.0
+        self.cfg.headmodule = CN()
+        self.cfg.headmodule.deform_bs_res = 32
+        self.cfg.headmodule.deform_bs_dim = 3
+        self.cfg.headmodule.deform_linear = [54, 128, 3]
+        self.cfg.headmodule.feature_res = 64
+        self.cfg.headmodule.feature_dim = 4
+        self.cfg.headmodule.density_linear = [140, 128, 1]
+        self.cfg.headmodule.color_linear = [167, 128, 1]
+        self.cfg.headmodule.interp_level = 3
+        self.cfg.headmodule.exp_dim = 32
+        self.cfg.headmodule.embedding_freq = 4
+        self.cfg.headmodule.deform_bbox = [[-1.2, 1.2], [-1.1, 1.6], [-1.8, 0.9]]
+        self.cfg.headmodule.feature_bbox = [[-1.2, 1.2], [-1.1, 1.6], [-1.8, 0.9]]
+        self.cfg.headmodule.noise = 0.0
         
 
         self.cfg.neuralcamera = CN()
-        self.cfg.neuralcamera.model_bbox = [[-0.15, 0.15], [-0.15, 0.15], [-0.2, 0.1]]
-        self.cfg.neuralcamera.image_size = 512
+        self.cfg.neuralcamera.model_bbox = [[-1.2, 1.2], [-1.1, 1.6], [-1.8, 0.9]]
+        self.cfg.neuralcamera.image_size = 256
         self.cfg.neuralcamera.max_samples = 2048
         self.cfg.neuralcamera.N_samples = 16
         self.cfg.neuralcamera.N_importance = 16

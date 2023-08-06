@@ -5,10 +5,10 @@ import os
 from lib.utils.util_seed import seed_everything
 
 from lib.dataset.NeRFDataset import NeRFDataset
-from lib.module.HeadNeRFModule import HeadNeRFModule
+from lib.module.HeadModule import HeadModule
 from lib.module.NeuralCameraModule import NeuralCameraModule
-from lib.recorder.HeadNeRFRecorder import HeadNeRFTrainRecorder
-from lib.trainer.HeadNeRFTrainer import HeadNeRFTrainer
+from lib.recorder.Recorder import TrainRecorder
+from lib.trainer.Trainer import Trainer
 
 if __name__ == '__main__':
     seed_everything(2645647)
@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     device = torch.device('cuda:%d' % cfg.gpu_id)
 
-    headnerf = HeadNeRFModule(cfg.headnerfmodule).to(device)
+    headnerf = HeadModule(cfg.headmodule).to(device)
     if os.path.exists(cfg.load_headnerf_checkpoint):
         headnerf.load_state_dict(torch.load(cfg.load_headnerf_checkpoint, map_location=lambda storage, loc: storage))
 
@@ -38,7 +38,7 @@ if __name__ == '__main__':
                                   {'params' : headnerf.deform_bs_volume, 'lr' : cfg.lr_deform_vol,},
                                   {'params' : headnerf.deform_mean_volume, 'lr' : cfg.lr_deform_vol,},
                                   {'params' : headnerf.deform_linear.parameters(), 'lr' : cfg.lr_deform_net}])
-    recorder = HeadNeRFTrainRecorder(cfg.recorder, dataset_eval)
+    recorder = TrainRecorder(cfg.recorder, dataset_eval)
 
-    trainer = HeadNeRFTrainer(dataloader, headnerf, neu_camera, optimizer, recorder, cfg.gpu_id)
+    trainer = Trainer(dataloader, headnerf, neu_camera, optimizer, recorder, cfg.gpu_id)
     trainer.train(0, 100)
