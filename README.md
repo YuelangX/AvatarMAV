@@ -5,7 +5,7 @@
 ## Getting Started
 * Create a conda environment `conda env create -f environment.yml`
 * Install Pytorch3d `pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py38_cu113_pyt1120/download.html`
-* Download our dataset [Google drive](https://drive.google.com/file/d/1Hzv41ZkpMK1X9h9Z-B54S-Nn1GcMveb8/view?usp=sharing) and place it in this folder
+* Download our dataset [Google drive](https://drive.google.com/file/d/197bOpeaj2Hw9_jcgF1Xp_n4r9DyLqlPr/view?usp=sharing) and place it in this folder
 
 ## Training
 ```
