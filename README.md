@@ -1,6 +1,6 @@
 # AvatarMAV: Fast 3D Head Avatar Reconstruction Using Motion-Aware Neural Voxels
 ## [Paper](https://arxiv.org/abs/2211.13206) | [Project Page](https://liuyebin.com/avatarmav/)
-<img src="assets/teaser.png" width="800" height="250"/> 
+<img src="assets/teaser.png" width="840" height="240"/> 
 
 ## Getting Started
 * Create a conda environment `conda env create -f environment.yml`
