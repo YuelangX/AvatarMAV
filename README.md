@@ -11,7 +11,7 @@
 ```
 python train.py
 ```
-During the training process, the intermediate results are saved in the results folder。
+During the training process, the intermediate results are saved in the results folder
 
 ## Citation
 ```
