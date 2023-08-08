@@ -14,7 +14,7 @@ if __name__ == '__main__':
     seed_everything(2645647)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, default='config/train_xyl.yaml')
+    parser.add_argument('--config', type=str, default='config/train.yaml')
     arg = parser.parse_args()
 
     cfg = config_headnerf()
