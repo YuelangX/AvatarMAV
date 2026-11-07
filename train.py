@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     headnerf = HeadModule(cfg.headmodule).to(device)
     if os.path.exists(cfg.load_headnerf_checkpoint):
-        headnerf.load_state_dict(torch.load(cfg.load_headnerf_checkpoint, map_location=lambda storage, loc: storage))
+        headnerf.load_state_dict(torch.load(cfg.load_headnerf_checkpoint, map_location=lambda storage, loc: storage, weights_only=True))
 
     neu_camera = NeuralCameraModule(headnerf, cfg.neuralcamera)
     optimizer = torch.optim.Adam([{'params' : headnerf.feature_volume, 'lr' : cfg.lr_feat_vol},
